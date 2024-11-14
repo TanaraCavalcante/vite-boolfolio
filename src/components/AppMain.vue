@@ -17,6 +17,8 @@ export default {
             axios.get(this.ApiUrl)
             .then(function (response) {
                 console.log(response.data.results);
+                //preencho o array com a api
+                this.CardList = response.data.results;
             })
             .catch(function (error) {
                 console.log(error);
@@ -34,9 +36,7 @@ export default {
 </script>
 
 <template>
-    <h1>
-     App Main
-    </h1>
+    
 </template>
 
 <style scoped>
