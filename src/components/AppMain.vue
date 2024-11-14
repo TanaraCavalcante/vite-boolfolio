@@ -12,20 +12,24 @@ export default {
     methods:{
         //metodo para recuperar os projetos 
         getApi(){
+            //ativo uma mensagem para ver em console o inizio da chamada
+            console.log("chiamata Api iniziata")
             axios.get(this.ApiUrl)
             .then(function (response) {
-                // handle success
-                console.log(response);
+                console.log(response.data.results);
             })
             .catch(function (error) {
-                // handle error
                 console.log(error);
             })
             .finally(function () {
-                // always executed
+                //sinalizo o final da chamada em console
+                console.log("Chiamata API terminata");
             });
         }
     },
+    created(){
+        this.getApi();
+    }
 }
 </script>
 
