@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import ProjectCard from './ProjectCard.vue';
 
 export default {
     name: "AppMain",
@@ -8,6 +9,9 @@ export default {
             CardList:[],
             ApiUrl:"http://127.0.0.1:8000/api/projects",
         }
+    },
+    components:{
+        ProjectCard
     },
     methods:{
         //metodo para recuperar os projetos 
@@ -36,7 +40,7 @@ export default {
 </script>
 
 <template>
-    
+    <ProjectCard/>
 </template>
 
 <style scoped>
