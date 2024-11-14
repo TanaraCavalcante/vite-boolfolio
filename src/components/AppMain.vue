@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import ProjectCard from './ProjectCard.vue';
+import ProjectCardList from './ProjectCardList.vue';
 
 export default {
     name: "AppMain",
@@ -11,7 +12,8 @@ export default {
         }
     },
     components:{
-        ProjectCard
+        ProjectCard,
+        ProjectCardList
     },
     methods:{
         //metodo para recuperar os projetos 
@@ -41,6 +43,7 @@ export default {
 
 <template>
     <ProjectCard/>
+    <ProjectCardList/>
 </template>
 
 <style scoped>
