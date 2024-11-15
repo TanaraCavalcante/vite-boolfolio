@@ -1,30 +1,21 @@
 <script>
 export default {
-    name:"ProjectCard",
+    name: "ProjectCard",
     data() {
         return {
 
         }
     },
-    props:{
-         project:{
-            type: object,
-            required: true
-         }
+    props: {
+        project: Object
     }
 }
+
 </script>
 
 <template>
-    <div class="card" >
-        <div class="card-body">
-            <h5 class="card-title">{{ project.title }}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>  
+    <h1>ciao</h1>
+    <h2>{{ project.title }}</h2>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

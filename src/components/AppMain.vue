@@ -4,20 +4,20 @@ import axios from 'axios';
 import ProjectCard from './ProjectCard.vue';
 
 export default {
-    name:"AppMain",  
+    name: "AppMain",
     data() {
         return {
             //Preparo per la mia chiamata ajax
-            projectList:[],
-            apiUrl:'http://127.0.0.1:8000/api/projects',
+            projectList: [],
+            apiUrl: 'http://127.0.0.1:8000/api/projects',
         }
     },
-    components:{
-      ProjectCard
+    components: {
+        ProjectCard
     },
-    methods:{
+    methods: {
         //Metodo para recuperar meus projetos da API
-        getProjects(){
+        getProjects() {
             console.log('Chiamata axios iniziata')
             axios.get(this.apiUrl)
                 .then(function (response) {
@@ -32,8 +32,9 @@ export default {
                 });
         }
     },
-    created(){
+    created() {
         this.getProjects();
+        console.log('ciaoProject', this.projectList)
     }
 }
 </script>
@@ -51,6 +52,4 @@ export default {
     </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
