@@ -14,10 +14,11 @@ export default {
     methods:{
         //Metodo para recuperar meus projetos da API
         getProjects(){
+            console.log('Chiamata axios iniziata')
             axios.get(this.apiUrl)
-                console.log('Chiamata axios iniziata')
                 .then(function (response) {
-                    console.log(response);
+                    console.log(response.data.results);
+                    this.projectList = response.data.results;
                 })
                 .catch(function (error) {
                     console.log(error);
