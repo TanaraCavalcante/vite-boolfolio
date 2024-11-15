@@ -1,16 +1,31 @@
 <script>
+//importo Axios
+import axios from 'axios';
 
 export default {
-  data() {
-    return {
-      
+    name:"AppMain",  
+    data() {
+        return {
+        
+        }
+    },
+    methods:{
+        //Metodo para recuperar meus projetos da API
+        getProjects(){
+
+        }
     }
-  }
 }
 </script>
 
 <template>
-    <h1>AppMain</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Projects</h2>
+            </div>
+        </div>
+    </div>
 </template>
 
 <style scoped>
