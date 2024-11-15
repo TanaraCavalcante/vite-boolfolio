@@ -45,7 +45,7 @@ export default {
                 <h2>Projects</h2>
             </div>
             <div class="col-12">
-                <ProjectCard v-for="project in projectList" :key="project.id" />
+                <ProjectCard v-for="singleProject in projectList" :key="project.id" :project="singleProject" />
             </div>
         </div>
     </div>
