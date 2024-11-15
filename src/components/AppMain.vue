@@ -14,7 +14,7 @@ export default {
     methods:{
         //Metodo para recuperar meus projetos da API
         getProjects(){
-            axios.get(apiUrl)
+            axios.get(this.apiUrl)
                 console.log('Chiamata axios iniziata')
                 .then(function (response) {
                     console.log(response);
@@ -25,8 +25,10 @@ export default {
                 .finally(function () {
                     console.log('chiamata axios terminata')
                 });
-
         }
+    },
+    created(){
+        this.getProjects();
     }
 }
 </script>
