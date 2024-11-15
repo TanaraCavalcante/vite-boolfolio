@@ -1,6 +1,7 @@
 <script>
 //importo Axios
 import axios from 'axios';
+import ProjectCard from './ProjectCard.vue';
 
 export default {
     name:"AppMain",  
@@ -10,6 +11,9 @@ export default {
             projectList:[],
             apiUrl:'http://127.0.0.1:8000/api/projects',
         }
+    },
+    components:{
+      ProjectCard
     },
     methods:{
         //Metodo para recuperar meus projetos da API
@@ -39,6 +43,9 @@ export default {
         <div class="row">
             <div class="col-12">
                 <h2>Projects</h2>
+            </div>
+            <div class="col-12">
+                <ProjectCard/>
             </div>
         </div>
     </div>

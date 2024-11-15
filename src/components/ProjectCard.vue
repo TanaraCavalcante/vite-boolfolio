@@ -10,11 +10,9 @@ export default {
 </script>
 
 <template>
-
+    <h3>ProjectCard</h3>
 </template>
 
 <style scoped>
-button {
-  font-weight: bold;
-}
+
 </style>
