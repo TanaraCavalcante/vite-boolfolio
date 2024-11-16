@@ -1,5 +1,7 @@
 <script>
-import AppProjects from './pages/AppProjects.vue';
+import AppHeader from './components/AppHeader.vue';
+import { RouterView } from "vue-router";
+
 
 export default {
     data() {
@@ -8,13 +10,16 @@ export default {
         }
     },
     components:{
-      AppProjects
+      AppHeader,
+      
     }
 }
 </script>
 
 <template>
-  <AppProjects/>
+  <AppHeader/>
+  <RouterView/>
+  
 </template>
 
 <style lang="scss">

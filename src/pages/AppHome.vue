@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "AppHome",
+    name: "home",
     data() {
         return {
             

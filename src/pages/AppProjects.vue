@@ -4,7 +4,7 @@ import axios from 'axios';
 import ProjectCard from './ProjectCard.vue';
 
 export default {
-    name: "AppMain",
+    name: "projects",
     data() {
         return {
             //Preparo per la mia chiamata ajax
