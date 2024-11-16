@@ -20,7 +20,7 @@ export default {
         getProjects() {
             console.log('Chiamata axios iniziata')
             axios.get(this.apiUrl)
-                .then(function (response) {
+                .then((response) => {
                     console.log(response.data.results);
                     this.projectList = response.data.results;
                 })
@@ -34,7 +34,6 @@ export default {
     },
     created() {
         this.getProjects();
-        console.log('ciaoProject', this.projectList)
     }
 }
 </script>
