@@ -1,5 +1,5 @@
 <script>
-import AppMain from './components/AppMain.vue';
+import AppProjects from './pages/AppProjects.vue';
 
 export default {
     data() {
@@ -8,13 +8,13 @@ export default {
         }
     },
     components:{
-      AppMain
+      AppProjects
     }
 }
 </script>
 
 <template>
-  <AppMain/>
+  <AppProjects/>
 </template>
 
 <style lang="scss">
