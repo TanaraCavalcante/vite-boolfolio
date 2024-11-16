@@ -7,14 +7,17 @@ export default {
         }
     },
     props: {
-        project: Object
+        project:{
+            type: Object,
+            Required: true
+        } 
     }
 }
 
 </script>
 
 <template>
-    <h1>ciao</h1>
+    
     <h2>{{ project.title }}</h2>
 </template>
 
