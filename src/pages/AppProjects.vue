@@ -34,7 +34,7 @@ export default {
                     console.log(response.data.results.data);
                     this.projectList = response.data.results.data;
                     this.lastPageNumber = response.data.results.last_page;
-                    this.currentPageNumber = response.data.pageNumber
+                    this.currentPageNumber = pageNumber
                     setTimeout(() => {
                         this.loaded = true; // Imposta 'loaded' a true dopo 2 secondi
                     }, 1000); // 
@@ -63,6 +63,14 @@ export default {
     },
     created() {
         this.getProjects(1);
+    },
+    computed:{
+        firstPage(){
+            return this.currentPageNumber === 1;
+        },
+        lastPage(){
+            return this.currentPageNumber >= this.lastPageNumber;
+        }
     }
 }
 </script>
@@ -78,6 +86,22 @@ export default {
             </section>
             <section class="row justify-content-center gap-2" v-else>
                 <ProjectCard v-for="singleProject in projectList" :key="singleProject.id" :project="singleProject" class="col-12 col-md-4 mb-4 "/>
+            </section>
+            <section>
+                <nav>
+                    <ul class="list-unstyled d-flex justify-content-between">
+                        <li>
+                            <button class="btn btn-outline-dark" @click="previusPage" :class="{ 'disabled' : firstPage}" > 
+                                << Prev 
+                            </button>
+                        </li>
+                        <li>
+                            <button class="btn btn-outline-dark" @click="nextPage" :class="{ 'disabled' : lastPage}" >  
+                                Next >> 
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
             </section>
         </div>
     </div>
