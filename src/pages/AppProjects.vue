@@ -46,6 +46,19 @@ export default {
                 .finally(function () {
                     console.log('chiamata axios terminata')
                 });
+        },
+        previusPage(){
+            if(this.currentPageNumber > 1){
+                this.currentPageNumber--;
+                this.getProjects(this.currentPageNumber);
+            }
+            
+        },
+        nextPage(){
+            if(this.currentPageNumber < this.lastPageNumber){
+                this.currentPageNumber++;
+                this.getProjects(this.currentPageNumber);
+            }
         }
     },
     created() {
