@@ -2,6 +2,8 @@
 //importo Axios
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
+import AppLoader from '../components/AppLoader.vue';
+import AppLoader from '../components/AppLoader.vue';
 
 export default {
     name: "projects",
@@ -13,7 +15,8 @@ export default {
         }
     },
     components: {
-        ProjectCard
+        ProjectCard,
+        AppLoader
     },
     methods: {
         //Metodo para recuperar meus projetos da API
@@ -45,7 +48,7 @@ export default {
                 <h2>Projects</h2>
             </div>
             <section class="loader">
-                
+                <AppLoader/>
             </section>
             <section class="row justify-content-center gap-2">
                 <ProjectCard v-for="singleProject in projectList" :key="singleProject.id" :project="singleProject" class="col-12 col-md-4 mb-4 " />
