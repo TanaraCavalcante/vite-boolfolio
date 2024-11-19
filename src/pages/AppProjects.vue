@@ -3,7 +3,7 @@
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
 import AppLoader from '../components/AppLoader.vue';
-import AppLoader from '../components/AppLoader.vue';
+
 
 export default {
     name: "projects",
@@ -12,6 +12,7 @@ export default {
             //Preparo per la mia chiamata ajax
             projectList: [],
             apiUrl: 'http://127.0.0.1:8000/api/projects',
+            // loaded: false,
         }
     },
     components: {
@@ -26,6 +27,7 @@ export default {
                 .then((response) => {
                     console.log(response.data.results);
                     this.projectList = response.data.results;
+                    // this.loaded = true;
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -37,6 +39,11 @@ export default {
     },
     created() {
         this.getProjects();
+    },
+    computed:{
+        loaded(){
+            return this.projectList.lenght > 0;
+        }
     }
 }
 </script>
@@ -47,11 +54,11 @@ export default {
             <div class="col-12 my-3">
                 <h2>Projects</h2>
             </div>
-            <section class="loader">
+            <section class="loader" v-if="!loaded">
                 <AppLoader/>
             </section>
-            <section class="row justify-content-center gap-2">
-                <ProjectCard v-for="singleProject in projectList" :key="singleProject.id" :project="singleProject" class="col-12 col-md-4 mb-4 " />
+            <section class="row justify-content-center gap-2" v-else>
+                <ProjectCard v-for="singleProject in projectList" :key="singleProject.id" :project="singleProject" class="col-12 col-md-4 mb-4 "/>
             </section>
         </div>
     </div>
