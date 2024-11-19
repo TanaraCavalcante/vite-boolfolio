@@ -12,7 +12,7 @@ export default {
             //Preparo per la mia chiamata ajax
             projectList: [],
             apiUrl: 'http://127.0.0.1:8000/api/projects',
-            // loaded: false,
+            loaded: false,
         }
     },
     components: {
@@ -27,7 +27,10 @@ export default {
                 .then((response) => {
                     console.log(response.data.results);
                     this.projectList = response.data.results;
-                    // this.loaded = true;
+                    setTimeout(() => {
+                        this.loaded = true; // Imposta 'loaded' a true dopo 2 secondi
+                    }, 2000); // 
+                    
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -39,11 +42,6 @@ export default {
     },
     created() {
         this.getProjects();
-    },
-    computed:{
-        loaded(){
-            return this.projectList.lenght > 0;
-        }
     }
 }
 </script>
