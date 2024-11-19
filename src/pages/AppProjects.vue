@@ -44,9 +44,12 @@ export default {
             <div class="col-12 my-3">
                 <h2>Projects</h2>
             </div>
-            <div class="row justify-content-center gap-2">
+            <section class="loader">
+                
+            </section>
+            <section class="row justify-content-center gap-2">
                 <ProjectCard v-for="singleProject in projectList" :key="singleProject.id" :project="singleProject" class="col-12 col-md-4 mb-4 " />
-            </div>
+            </section>
         </div>
     </div>
 </template>
