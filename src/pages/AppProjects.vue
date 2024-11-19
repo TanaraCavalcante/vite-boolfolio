@@ -21,15 +21,19 @@ export default {
     },
     methods: {
         //Metodo para recuperar meus projetos da API
-        getProjects() {
+        getProjects(pageNumber) {
             console.log('Chiamata axios iniziata')
-            axios.get(this.apiUrl)
+            axios.get(this.apiUrl, {
+                    params: {
+                    page: pageNumber
+                    }
+                })
                 .then((response) => {
-                    console.log(response.data.results);
-                    this.projectList = response.data.results;
+                    console.log(response.data.results.data);
+                    this.projectList = response.data.results.data;
                     setTimeout(() => {
                         this.loaded = true; // Imposta 'loaded' a true dopo 2 secondi
-                    }, 2000); // 
+                    }, 1000); // 
                     
                 })
                 .catch(function (error) {
@@ -41,7 +45,7 @@ export default {
         }
     },
     created() {
-        this.getProjects();
+        this.getProjects(1);
     }
 }
 </script>

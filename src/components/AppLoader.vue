@@ -11,7 +11,10 @@ export default {
 
 <template>
     <!-- credits https://css-loaders.com/dots/ -->
- <div class="loader"></div>
+     <section >
+        <div class="loader"></div>
+     </section>
+ 
 </template>
 
 <style scoped>
