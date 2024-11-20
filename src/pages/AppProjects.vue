@@ -37,7 +37,7 @@ export default {
                     this.currentPageNumber = pageNumber
                     setTimeout(() => {
                         this.loaded = true; // Imposta 'loaded' a true dopo 2 secondi
-                    }, 1000); // 
+                    }, 1500); // 
                     
                 })
                 .catch(function (error) {

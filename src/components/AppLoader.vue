@@ -11,8 +11,8 @@ export default {
 
 <template>
     <!-- credits https://css-loaders.com/dots/ -->
-     <section >
-        <div class="loader"></div>
+     <section class="single-loader d-flex">
+        <div class="loader m-auto"></div>
      </section>
  
 </template>
