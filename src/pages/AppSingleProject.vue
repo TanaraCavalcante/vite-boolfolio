@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
 
 export default {
@@ -6,7 +7,7 @@ export default {
     data() {
         return {
             singleProject:[],
-            apiUrl: 'http://127.0.0.1:8000/api/projects/',
+            apiUrl: 'http://127.0.0.1:8000/api/projects',
         }
     },
     components:{
@@ -16,12 +17,12 @@ export default {
         //Metodo para recuperar meus projetos da API
         getSingleProject() {
             console.log('Chiamata axios iniziata')
-            axios.get('${this.apiUrl}/${this.$route.params.id}')
+            axios.get(`${this.apiUrl}/${this.$route.params.id}`)
                 .then((response) => {
-                    console.log(response.data.results);
-                    this.singleProject = response.data.results;
+                    console.log(response.data);
+                    this.singleProject = response.data;
+                    console.log(this.singleProject);
                    
-                    
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -39,7 +40,7 @@ export default {
 
 <template>
     <h2>Single Project, ID: {{ $route.params.id }}</h2>
-    <ProjectCard singleProjectObj="singleProject"/>
+    <ProjectCard  :project="singleProject"/>
 </template>
 
 <style scoped>

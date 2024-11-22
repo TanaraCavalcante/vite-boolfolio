@@ -35,9 +35,9 @@ export default {
                     this.projectList = response.data.results.data;
                     this.lastPageNumber = response.data.results.last_page;
                     this.currentPageNumber = pageNumber
-                    setTimeout(() => {
+                    //setTimeout(() => {
                         this.loaded = true; // Imposta 'loaded' a true dopo 2 secondi
-                    }, 1500); // 
+                   // }, 1500); // 
                     
                 })
                 .catch(function (error) {

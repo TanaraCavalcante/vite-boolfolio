@@ -9,7 +9,7 @@ export default {
     props: {
         project:{
             type: Object,
-            Required: true
+            required: true
         } 
     }
 }
