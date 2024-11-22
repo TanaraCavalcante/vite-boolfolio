@@ -3,45 +3,47 @@ import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
 
 export default {
-    name:"singleProject",
+    name: "singleProject",
     data() {
         return {
             singleProject: null,
             apiUrl: 'http://127.0.0.1:8000/api/projects',
         }
     },
-    components:{
+    components: {
         ProjectCard
     },
-    methods:{
-        //Metodo para recuperar meus projetos da API
+    methods: {
+        // Metodo per recuperare il singolo progetto dalla API
         getSingleProject() {
             console.log('Chiamata axios iniziata')
             axios.get(`${this.apiUrl}/${this.$route.params.id}`)
                 .then((response) => {
-                    console.log(response.data);
-                    this.singleProject = response.data;
-                    console.log(this.singleProject); 
+                    if (response.data) {
+                        console.log(response.data.results);
+                        this.singleProject = response.data.results;  // Assegna i dati ricevuti alla variabile
+                    } else {
+                        console.error('Nessun dato trovato per il progetto');
+                    }
                 })
-                .catch(function (error) {
-                    console.log(error);
+                .catch((error) => {
+                    console.error('Errore durante la richiesta:', error);
                 })
-                .finally(function () {
-                    console.log('chiamata axios terminata')
+                .finally(() => {
+                    console.log('Chiamata axios terminata');
+                    this.loading = false;  // Imposta a false quando i dati sono caricati
                 });
+        }
     },
-    created(){
-        this.getSingleProject(); 
-    }
+    created() {
+        this.getSingleProject();  // Chiamata per ottenere i dati quando il componente è creato
     }
 }
 </script>
 
 <template>
     <h2>Single Project, ID: {{ $route.params.id }}</h2>
-    <ProjectCard  :project="singleProject"/>
+    <ProjectCard :project="singleProject" />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
